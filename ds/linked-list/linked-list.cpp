@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include "LinkedListSort.h"
 using namespace std;
 
 struct node {
@@ -8,6 +9,7 @@ struct node {
 } *start;
 
 int menu() {
+    msg();
     int m;
     cout << endl;
     cout << "------------------------------" << endl;
