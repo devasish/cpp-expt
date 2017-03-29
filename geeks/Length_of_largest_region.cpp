@@ -1,3 +1,7 @@
+/**
+ * Source : 
+ * http://practice.geeksforgeeks.org/problem-page.php?pid=1697
+ */
 #include <iostream>
 
 using namespace std;
