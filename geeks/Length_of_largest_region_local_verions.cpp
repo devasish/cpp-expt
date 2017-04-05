@@ -12,6 +12,17 @@ struct node {
     int region;
 };
 
+void pr(node **a, int n, int m) {
+    int i, j;
+    cout << endl << "Matrix is : " << endl;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            cout << a[i][j].value << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
 
 int neighbour(node **a, int n, int m, int i, int j) {
     int region_size = 1;
@@ -39,54 +50,54 @@ int neighbour(node **a, int n, int m, int i, int j) {
             }
         }
     }
-
+    
     return region_size;
 }
 
 int main() {
+    int t = 1;
     int n, m, max_region_size = 0, region_size;
     node **a;
-    int i, j, t, ti = 0;
-    int *output;
+    int i, j;
 
-    cin >> t;
-    output = new int[t];
-    while (ti < t) {
-        max_region_size = 0;
-        region_size = 0;
-        cin >> n;
-        cin >> m;
+    cout << "Enter Number of Rows : ";
+    cin >> n;
+    cout << endl;
+    cout << "Enter Number of Columns: ";
+    cin >> m;
 
-        a = new node*[n];
-        for (i = 0; i < n; i++) {
-            a[i] = new node[m];
+    cout << endl;
+    cout << "Enter Array Elements:" << endl;
+
+    a = new node*[n];
+
+
+    for (i = 0; i < n; i++) {
+        a[i] = new node[m];
+    }
+
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            cin >> a[i][j].value;
+            a[i][j].region = 0;
+            a[i][j].visited = 0;
         }
+    }
 
-        for (i = 0; i < n; i++) {
-            for (j = 0; j < m; j++) {
-                cin >> a[i][j].value;
-                a[i][j].region = 0;
-                a[i][j].visited = 0;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            if (a[i][j].value == 1 && a[i][j].visited == 0) {
+                a[i][j].region = i * 10 + j + 1;
+                region_size = neighbour(a, n, m, i, j);
+                if (region_size > max_region_size)
+                    max_region_size = region_size;
             }
-        }
 
-        for (i = 0; i < n; i++) {
-            for (j = 0; j < m; j++) {
-                if (a[i][j].value == 1 && a[i][j].visited == 0) {
-                    a[i][j].region = i * 10 + j + 1;
-                    region_size = neighbour(a, n, m, i, j);
-                    if (region_size > max_region_size)
-                        max_region_size = region_size;
-                }
-            }
         }
-
-        output[ti] = max_region_size;
-        ti++;
     }
     
-    for (i =0; i < t; i++) {
-        cout << output[i] << endl;
-    }
+    cout << "Max Region Size : " << max_region_size;
+    pr(a, n, m);
+
     return 0;
 }
