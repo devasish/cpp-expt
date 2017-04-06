@@ -6,7 +6,7 @@
 #include <fstream>
 #include <cmath>
 
-#define cin fin
+//#define cin fin
 using namespace std;
 
 void pr(int **arr) {
@@ -87,33 +87,22 @@ int main() {
         }
 
         bool flag = true;
-        cout << endl;
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
                 if (arr[i][j] == 0) {
-                    cout << "---" << " ";
                     continue;
                 }
 
                 flag = flag && check_row(arr, i, j) && check_home(arr, i, j) && check_col(arr, i, j);
-                cout << check_row(arr, i, j) << check_home(arr, i, j) << check_col(arr, i, j) << " ";
-                //                cout << flag  << " ";
-                //                if (!(check_row(arr, i, j) && check_home(arr, i, j) && check_col(arr, i, j))) {
-                //                    
-                //                }
             }
-            cout << endl;
         }
 
-        cout << endl;
-
-
-        pr(arr);
-
         if (flag)
-            cout << "okay";
+            cout << 1;
         else
-            cout << "No";
+            cout << 0;
+
+        cout << endl;
     }
 
     return 1;
