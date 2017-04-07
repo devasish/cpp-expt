@@ -28,7 +28,11 @@ void pr(int **arr) {
     for (i = 0; i < SUDOKU_SIZE; i++) {
         for (j = 0; j < SUDOKU_SIZE; j++) {
             cout << arr[i][j] << " ";
+            if ((j + 1) % (int) sqrt(SUDOKU_SIZE) == 0)
+                cout << "|";
         }
+        if ((i + 1) % (int) sqrt(SUDOKU_SIZE) == 0)
+            cout << endl << "------+------+------+";;
         cout << endl;
     }
 }
