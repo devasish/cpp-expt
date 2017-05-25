@@ -2,6 +2,10 @@
 #include "LinkedListSort.h"
 using namespace std;
 
-void msg() {
-    cout << "Msg";
+LinkedListSort::LinkedListSort() {
+    cout << "Hello Msg..";
+}
+
+LinkedListSort::msg() {
+    cout << "Hello Msg";
 }

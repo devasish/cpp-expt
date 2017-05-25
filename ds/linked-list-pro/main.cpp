@@ -1,6 +1,13 @@
+/* 
+ * File:   main.cpp
+ * Author: Devasish Ghosh
+ *
+ * Created on 21 March, 2017, 5:04 PM
+ */
+
 #include <iostream>
 #include <cstdlib>
-#include "LinkedListSort.h"
+#include "Lsort.h"
 using namespace std;
 
 struct node {
@@ -9,8 +16,6 @@ struct node {
 } *start;
 
 int menu() {
-    LinkedListSort LL;
-    LL.msg();
     int m;
     cout << endl;
     cout << "------------------------------" << endl;
@@ -44,6 +49,7 @@ public:
     void insert_at_position();
     void insert_after_element();
     void insert_before_element();
+
     void auto_create_list() {
         auto_create = 1;
         int size = 5;
@@ -56,8 +62,8 @@ public:
     }
 
     int length();
-    
-    void sort();
+
+    //void sort();
 
 };
 
@@ -219,7 +225,9 @@ void LinkedList::insert_before_element() {
 
 }
 
-int main() {
+int main(int argc, char** argv) {
+    Lsort ls;
+    
     start = NULL;
     int m = menu();
     LinkedList L;
