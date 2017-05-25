@@ -1,2 +1,14 @@
+#ifndef LINKEDLISTSORT_H
+#define	LINKEDLISTSORT_H
 
-void msg();
+class LinkedListSort {
+public:
+    LinkedListSort();
+    virtual ~LinkedListSort();
+    virtual ~msg();
+private:
+
+};
+
+#endif	/* LINKEDLISTSORT_H */
+
